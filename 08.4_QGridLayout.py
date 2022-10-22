@@ -7,8 +7,8 @@ class Example(QWidget):
         self.initUI()
 
     def initUI(self):
-        grid = QGridLayout()
-        self.setLayout(grid)
+        grid = QGridLayout() # QGridLayout을 통해서 인스턴스를 생성한다.
+        self.setLayout(grid) # setLayout을 통해서 grid를 응용 프로그램 창의 레이아웃으로 설정한다.
 
         names = ["Cls", "Back", "", "Close",
                  "7", "8", "9", "/",
@@ -21,8 +21,9 @@ class Example(QWidget):
             if name == "":
                 continue
             button = QPushButton(name)
-            grid.addWidget(button, *position)
-
+            print(position)
+            grid.addWidget(button, *position) # 데이터 Unpacking --> grid.addWidget(button, position[0], position[1]) 
+            # button을 Grid 위치에 맞게 설정한다.
         self.move(300, 150)
         self.setWindowTitle("Calculator")
         self.show()

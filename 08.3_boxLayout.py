@@ -38,7 +38,7 @@ class Example(QWidget):
         # 이러한 레이아웃을 생성하기 위해 하나의 수평 상자와 하나의 수직 상자를 사용한다.
         # 응용 프로그램 창 크기를 조정해도 박스 레이아웃 내의 위젯들은 해당 위치에 그대로 있다.
 
-        self.setLayout(vbox)
+        self.setLayout(vbox) # setLayout을 통해 메인 레이아웃을 통해 설정한다
     
 
 if __name__ == "__main__":
