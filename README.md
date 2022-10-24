@@ -22,7 +22,7 @@ planning -> analysis -> design -> implementation -> maintenance
     - 금지되는 논리적 구조(무한 루프 + 조건부 break)
 
 ### python 코딩 규칙
-PEP8 - Sytle Guide for Python Code
+PEP8 - Sytle Guide for Python Code <br>
 Google Python Sytle Guide
 
 ### github commit 순서
@@ -145,12 +145,12 @@ from PyQt5.QtWidgets import *
 app = QApplication(sys.argv)
 label = QLabel("Quit")
 label.show()
-app.exec_()
+app.exec_() # exec와 같은 경우에는 파이썬의 키워드이기 때문에, exec_를 사용하게 된다. -> 이벤트 루프를 통해서 무한 루프를 돌려, 사용자가 창을 닫기 전까지 계속 실행되게 된다.
 ```
 
 ## 07.3_PyQtClass
 ### Python과 OOP
-- Python은 쉽게 접근할 수 있는 스크립팅 언어라는 점이 매력적이기 때문에 OOP까지 신경 쓸 필요는 없다. 하지만 필요에 따라 작은 모듀들을 개발함으로써 쉽게 소프트웨어를 생성할 수 있다.
+- Python은 쉽게 접근할 수 있는 스크립팅 언어라는 점이 매력적이기 때문에 OOP까지 신경 쓸 필요는 없다. 하지만 필요에 따라 작은 모듈들을 개발함으로써 쉽게 소프트웨어를 생성할 수 있다.
 - 공개 도메인에 존재하는 많은 라이브러리들이 OOP로 만들어져 있다.
 - 프로그램의 규모가 커질수록 OOP로 얻을 수 있는 이득이 커진다.
 - GUI는 대표적으로 OOP 기법을 이용하여 만들어진 라이브러리로, 이미 만들어진 클래스들을 활용하여 유연한 프로그래밍이 가능하다.
@@ -169,7 +169,8 @@ if __name__ == "__main__":
 - 유저 인터페이스를 구성하는 가장 기본적인 부품 역할.
 - QGroupBox, QLabel, QTextEdit, QDateEdit, QTimeEdit, QLineEdit와 같은 다양한 위젯들이 사용됨
 - 한 위젯은 다양한 위젯에 포함될 수 있고, PyQt에서는 다른 위젯에 포함되지 않은 최상위 위젯을 window라고 부름
-- 위의 예제에서는 QMainWindow 클래스로 윈도우 창을 생성하였다.
+- 위의 예제에서는 QMainWindow 클래스로 윈도우 창을 생성하였다.<br>ㅂ
+<a href="https://coding-kindergarten.tistory.com/171">참고 링크</a>
 <br><br>
 
 ## 08.3_layout
@@ -196,7 +197,7 @@ if __name__ == "__main__":
 - 이벤트 소스 객체는 이벤트를 처리하는 작업을 이벤트 타겟에 위임한다.
 - 이벤트가 값을 변화시키는 물체(labeltext 등등)<br>
 
-Event object가 Signal을 보내면수서 Sender가 되고, Event Target이 Signal을 받으면서 Receiver가 된다.
+Event object가 Signal을 보내면서 Sender가 되고, Event Target이 Signal을 받으면서 Receiver가 된다.
 
 ## Signals and Slots(신호와 슬롯)
 - 이벤트를 신호라고 할 수 있으며 이벤트 핸들러 함수를 슬롯이라고 할 수 있다.
