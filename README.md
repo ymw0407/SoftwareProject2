@@ -1,5 +1,113 @@
 # SoftwareProject2
 
+## 02 - 코드 리뷰
+- 코드 리뷰란 개발자가 작성한 코드를 다른 개발자가 정해진 방법을 통하여 검토하는 일
+- 형태: 상급자 검토, 집단 검토, 동료 검토
+- 종류: 코드 규칙 검사, 실패 검출, 워크 스루(work through)
+
+### 좋은 코드란
+- 의도된 기능을 올바르게 수행한다고 해서 좋은 코드가 아니다.
+- 코드의 기능적 역할과 외관 모두 중요하다.
+
+### 클린코드의 구성
+planning -> analysis -> design -> implementation -> maintenance
+
+### 코딩 규칙
+같은 코드를 작성하고 유지보수하는 개발자들 사이에 규정된, 코드가 지켜야 할 규약
+- 형태적 측면
+    - 변수와 합수의 이름 붙이기
+    - 띄어쓰기, 들여쓰기와 블록 구조 등
+- 구조적 측면
+    - 권장되는 논리적 구조(하나의 함수 내에 리턴 문장은 하나만)
+    - 금지되는 논리적 구조(무한 루프 + 조건부 break)
+
+### python 코딩 규칙
+PEP8 - Sytle Guide for Python Code
+Google Python Sytle Guide
+
+### github commit 순서
+1. 파일 작성
+2. git status
+3. git add
+4. git commit
+5. git push
+
+## 04 - 파일 입출력
+
+### open
+
+```python
+file = open("파일명", "열기모드")
+```
+- 열기 모드
+    - r: 읽기 모드(기본)
+    - w: 쓰기 모드
+    - a: 추가 모드
+    ---
+    - b: 이진 모드
+    - t: 텍스트 모드(기본)
+    ---
+    - x: 열고자 하는 파일이 이미 존재하면 파일 개방에 실패
+    - +: 파일을 읽을 수도 있고 쓸 수도 있도록 개방함(+)
+
+### read
+
+```python
+with open("text.txt", "rt") as file:
+    line1 = file.readline()
+    line2 = file.readline()
+    line3 = file.readline()
+    line4 = file.readline()
+    print(line1) # "1번 줄\n"
+    print(line2) # "2번 줄\n"
+    print(line3) # "3번 줄"
+    print(line4) # ""
+
+with open("text.txt", "rt") as file:
+    lines = file.readlines()
+    print(lines) # ["1번 줄\n", "2번 줄\n", "3번 줄"]
+    
+with open("text.txt", "rt") as file:
+    allLines = file.read()
+    print(allLines) # "1번 줄\n2번 줄\n3번 줄\n"
+
+```
+
+### dictionary
+
+```python
+
+dict = {"key1" : 1, "key2": 2, "key3": 3}
+print(dict["key1"]) # 1
+
+for k in dict.keys(): # ["key1", "key2", "key3"]
+    print(k) 
+for v in dict.values(): # [1, 2, 3]
+    print(v)
+for k, v in dict.items(): # [('key1', 1), ('key2', 2), ('key3', 3)]
+    print(k, v)
+
+dict.update("key4" : 4)
+print(dict["key4"]) # 4
+
+```
+### file exceptions
+- FileExistsError
+    - 이미 존재하는 파일이나 디렉터리를 만들려고 할 때 발생한다.(errno EEXIST)
+- FileNotFoundError
+    - 파일이나 디렉터리가 요청되었지만 존재하지 않을 때 발생한다.(errno ENOENT)
+
+### Pickle
+- 다양한 데이터 타입이 혼재되어 있는 리스트, 튜플, 객체 등을 파일로 저장하고 싶을 때 사용
+- 피클을 사용하면 저장된 파일을 원래 데이터 타입으로 자동으로 변환이 가능함(open에서 eval을 사용하는 것과 유사하지만, 훨씬 안전하다)<br><br>
+
+- 피클링(pickling): 객체를 파일로 저장
+    - dump()를 통해 write
+- 언피클링(unpickling): 파일로부터 읽어들인 내용을 객체로 변환
+    - load()를 통해 read<br><br>
+
+- pickle을 사용하면 DB 파일의 입출력이 단순화될 뿐만 아니라, 파일 크기가 감소한다
+
 ## 07 - 사용자 인터페이스 1
 
 ### TUI(Text-based User Interface)
