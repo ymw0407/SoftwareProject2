@@ -51,5 +51,4 @@ class Review(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = Review()
-    # w.show() # 자동으로 show가 되는 듯...?
     sys.exit(app.exec_())

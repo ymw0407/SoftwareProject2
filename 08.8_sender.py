@@ -9,6 +9,7 @@ class Example(QMainWindow):
     def initUI(self):
         btn1 = QPushButton("Button 1", self)
         print(btn1)
+        print(btn1.text())
         btn1.move(30, 50)
 
         btn2 = QPushButton("Button 2", self)

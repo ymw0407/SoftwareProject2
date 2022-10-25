@@ -17,6 +17,7 @@ class Example(QWidget):
         vbox.addWidget(sld)
 
         self.setLayout(vbox)
+        lcd.display(16)
         sld.valueChanged.connect(lcd.display) # valueChanged라는 값이 변하는 신호를 받고, display라는 이벤트 핸들러, 즉 Slot과 연결하는 코드이다
 
         self.setGeometry(300, 300, 250, 150)
